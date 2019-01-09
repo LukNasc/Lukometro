@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Toast.makeText(getApplicationContext(), "Jiselle Linda", LENGTH_SHORT).show();
 
         tvSegundos = findViewById(R.id.tvSegundos);
         tvMinutos = findViewById(R.id.tvMinutos);
