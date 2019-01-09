@@ -2,6 +2,7 @@ package com.example.gfx.thread;
 
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -38,8 +39,8 @@ public class MainActivity extends AppCompatActivity {
                        iniciar.interrupt();
                     }
                     iniciar.start();
-
                     btnIniciar.setText("PARAR");
+                    btnIniciar.setBackgroundColor(Color.RED);
                 }else{
                     iniciar = new MyThread(true, false);
                     iniciar.start();
@@ -48,6 +49,8 @@ public class MainActivity extends AppCompatActivity {
                     if(!iniciar.isInterrupted()){
                         iniciar.interrupt();
                     }
+
+                    btnIniciar.setBackgroundColor(Color.argb(255,0,109,178));
                 }
                 Log.i("onClick","O BOTÃO INICIAR/PARAR FOI PRESSIONADO");
             }
@@ -93,14 +96,22 @@ public class MainActivity extends AppCompatActivity {
         public void run() {
             super.run();
             if(i != 0) i=0;
-            if(reset){
-                cont = 0;
-                minutos = 0;
-                horas = 0;
-                i = 10;
-                interrupt();
-                return;
-            }
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    if(reset){
+                        cont = 0;
+                        minutos = 0;
+                        horas = 0;
+                        tvMinutos.setText(""+0);
+                        tvHoras.setText(""+0);
+                        tvSegundos.setText(""+0);
+                        i = 10;
+                        interrupt();
+                    }
+                }
+            });
+
             while (i == 0){
                 if(!this.stop){
                     runOnUiThread(new Runnable() {
