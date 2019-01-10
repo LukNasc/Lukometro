@@ -1,4 +1,5 @@
-#Lukometro 
+<img src="https://github.com/LukNasc/Lukometro/blob/master/app/src/main/res/drawable/logo.png" width="200" height="200" >
+<h1>LUKOMETRO</h1> 
 <h3> O que é?</h3>
 <p>O Lukometro é um cronômetro simples desenvolvido com a linguagem Java <br>
   feito especificamente para dispositivos android</p>
