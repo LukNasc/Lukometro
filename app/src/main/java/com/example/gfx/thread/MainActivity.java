@@ -65,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 iniciar.start();
                 btnIniciar.setText("INICIAR");
+                btnIniciar.setBackgroundColor(Color.argb(255,0,109,178));
             }
         });
 
@@ -108,6 +109,7 @@ public class MainActivity extends AppCompatActivity {
                         tvSegundos.setText(""+0);
                         i = 10;
                         interrupt();
+                        return;
                     }
                 }
             });
